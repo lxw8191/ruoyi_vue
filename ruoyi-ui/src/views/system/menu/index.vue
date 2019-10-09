@@ -49,16 +49,16 @@
       </el-table-column>
       <el-table-column label="操作" align="center" width="180" class-name="small-padding fixed-width">
         <template slot-scope="scope">
-          <el-button size="mini"
-            type="text"
-            icon="el-icon-edit"
+          <el-button size="mini" 
+            type="text" 
+            icon="el-icon-edit" 
             @click="handleUpdate(scope.row)"
             v-hasPermi="['system:menu:edit']"
           >修改</el-button>
-          <el-button
-            size="mini"
-            type="text"
-            icon="el-icon-plus"
+          <el-button 
+            size="mini" 
+            type="text" 
+            icon="el-icon-plus" 
             @click="handleAdd(scope.row)"
             v-hasPermi="['system:menu:add']"
           >新增</el-button>
@@ -79,7 +79,7 @@
       <el-form ref="form" :model="form" :rules="rules" label-width="80px">
         <el-row>
           <el-col :span="24" v-if="form.parentId !== 0">
-            <el-form-item label="上级菜单" prop="parentId">
+            <el-form-item label="上级菜单">
               <treeselect
                 v-model="form.parentId"
                 :options="menuOptions"
@@ -148,7 +148,7 @@
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item v-if="form.menuType == 'C'" label="权限标识">
+            <el-form-item v-if="form.menuType != 'M'" label="权限标识">
               <el-input v-model="form.perms" placeholder="请权限标识" maxlength="50" />
             </el-form-item>
           </el-col>
@@ -204,9 +204,6 @@ export default {
       form: {},
       // 表单校验
       rules: {
-        parentId: [
-          { required: true, message: "上级菜单不能为空", trigger: "blur" }
-        ],
         menuName: [
           { required: true, message: "菜单名称不能为空", trigger: "blur" }
         ],
