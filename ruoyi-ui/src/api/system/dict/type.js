@@ -42,6 +42,7 @@ export function delType(dictId) {
     method: 'delete'
   })
 }
+<<<<<<< HEAD
 
 // 刷新字典缓存
 export function refreshCache() {
@@ -58,3 +59,5 @@ export function optionselect() {
     method: 'get'
   })
 }
+=======
+>>>>>>> 46444bd (RuoYi-Vue 1.0)

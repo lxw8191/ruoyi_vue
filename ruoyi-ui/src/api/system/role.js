@@ -63,6 +63,7 @@ export function delRole(roleId) {
     url: '/system/role/' + roleId,
     method: 'delete'
   })
+<<<<<<< HEAD
 }
 
 // 查询角色已授权用户列表
@@ -117,3 +118,6 @@ export function deptTreeSelect(roleId) {
     method: 'get'
   })
 }
+=======
+}
+>>>>>>> 46444bd (RuoYi-Vue 1.0)

@@ -1,12 +1,20 @@
 @echo off
 echo.
-echo [ÐÅÏ¢] °²×°Web¹¤³Ì£¬Éú³Énode_modulesÎÄ¼þ¡£
+<<<<<<< HEAD
+echo [ï¿½ï¿½Ï¢] ï¿½ï¿½×°Webï¿½ï¿½ï¿½Ì£ï¿½ï¿½ï¿½ï¿½ï¿½node_modulesï¿½Ä¼ï¿½ï¿½ï¿½
+=======
+echo [ï¿½ï¿½Ï¢] ï¿½ï¿½ï¿½Webï¿½ï¿½ï¿½Ì£ï¿½ï¿½ï¿½ï¿½ï¿½node_modulesï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
 echo.
 
 %~d0
 cd %~dp0
 
 cd ..
+<<<<<<< HEAD
 npm install --registry=https://registry.npmmirror.com
+=======
+npm install --registry=https://registry.npm.taobao.org
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
 
 pause

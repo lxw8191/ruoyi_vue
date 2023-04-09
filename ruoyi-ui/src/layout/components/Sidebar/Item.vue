@@ -21,11 +21,15 @@ export default {
     }
 
     if (title) {
+<<<<<<< HEAD
       if (title.length > 5) {
         vnodes.push(<span slot='title' title={(title)}>{(title)}</span>)
       } else {
         vnodes.push(<span slot='title'>{(title)}</span>)
       }
+=======
+      vnodes.push(<span slot='title'>{(title)}</span>)
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
     }
     return vnodes
   }

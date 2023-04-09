@@ -49,6 +49,7 @@ export function delConfig(configId) {
     url: '/system/config/' + configId,
     method: 'delete'
   })
+<<<<<<< HEAD
 }
 
 // 刷新参数缓存
@@ -58,3 +59,6 @@ export function refreshCache() {
     method: 'delete'
   })
 }
+=======
+}
+>>>>>>> 46444bd (RuoYi-Vue 1.0)

@@ -20,39 +20,65 @@
             :expand-on-click-node="false"
             :filter-node-method="filterNode"
             ref="tree"
+<<<<<<< HEAD
             node-key="id"
             default-expand-all
             highlight-current
+=======
+            default-expand-all
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
             @node-click="handleNodeClick"
           />
         </div>
       </el-col>
       <!--用户数据-->
       <el-col :span="20" :xs="24">
+<<<<<<< HEAD
         <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
           <el-form-item label="用户名称" prop="userName">
+=======
+        <el-form :inline="true" label-width="68px">
+          <el-form-item label="用户名称">
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
             <el-input
               v-model="queryParams.userName"
               placeholder="请输入用户名称"
               clearable
+<<<<<<< HEAD
+=======
+              size="small"
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
               style="width: 240px"
               @keyup.enter.native="handleQuery"
             />
           </el-form-item>
+<<<<<<< HEAD
           <el-form-item label="手机号码" prop="phonenumber">
+=======
+          <el-form-item label="手机号码">
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
             <el-input
               v-model="queryParams.phonenumber"
               placeholder="请输入手机号码"
               clearable
+<<<<<<< HEAD
+=======
+              size="small"
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
               style="width: 240px"
               @keyup.enter.native="handleQuery"
             />
           </el-form-item>
+<<<<<<< HEAD
           <el-form-item label="状态" prop="status">
+=======
+          <el-form-item label="状态">
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
             <el-select
               v-model="queryParams.status"
               placeholder="用户状态"
               clearable
+<<<<<<< HEAD
               style="width: 240px"
             >
               <el-option
@@ -60,12 +86,26 @@
                 :key="dict.value"
                 :label="dict.label"
                 :value="dict.value"
+=======
+              size="small"
+              style="width: 240px"
+            >
+              <el-option
+                v-for="dict in statusOptions"
+                :key="dict.dictValue"
+                :label="dict.dictLabel"
+                :value="dict.dictValue"
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
               />
             </el-select>
           </el-form-item>
           <el-form-item label="创建时间">
             <el-date-picker
               v-model="dateRange"
+<<<<<<< HEAD
+=======
+              size="small"
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
               style="width: 240px"
               value-format="yyyy-MM-dd"
               type="daterange"
@@ -76,6 +116,7 @@
           </el-form-item>
           <el-form-item>
             <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
+<<<<<<< HEAD
             <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
           </el-form-item>
         </el-form>
@@ -144,6 +185,19 @@
           <el-table-column label="部门" align="center" key="deptName" prop="dept.deptName" v-if="columns[3].visible" :show-overflow-tooltip="true" />
           <el-table-column label="手机号码" align="center" key="phonenumber" prop="phonenumber" v-if="columns[4].visible" width="120" />
           <el-table-column label="状态" align="center" key="status" v-if="columns[5].visible">
+=======
+            <el-button type="primary" icon="el-icon-plus" size="mini" @click="handleAdd" v-hasPermi="['system:user:add']">新增</el-button>
+          </el-form-item>
+        </el-form>
+
+        <el-table v-loading="loading" :data="userList">
+          <el-table-column label="用户编号" align="center" prop="userId" />
+          <el-table-column label="用户名称" align="center" prop="userName" />
+          <el-table-column label="用户昵称" align="center" prop="nickName" />
+          <el-table-column label="部门" align="center" prop="dept.deptName" />
+          <el-table-column label="手机号码" align="center" prop="phonenumber" width="120" />
+          <el-table-column label="状态" align="center">
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
             <template slot-scope="scope">
               <el-switch
                 v-model="scope.row.status"
@@ -153,18 +207,31 @@
               ></el-switch>
             </template>
           </el-table-column>
+<<<<<<< HEAD
           <el-table-column label="创建时间" align="center" prop="createTime" v-if="columns[6].visible" width="160">
             <template slot-scope="scope">
               <span>{{ parseTime(scope.row.createTime) }}</span>
+=======
+          <el-table-column label="创建时间" align="center" prop="createTime" width="160">
+            <template slot-scope="scope">
+              <span>{{ dateFormat(scope.row.createTime) }}</span>
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
             </template>
           </el-table-column>
           <el-table-column
             label="操作"
             align="center"
+<<<<<<< HEAD
             width="160"
             class-name="small-padding fixed-width"
           >
             <template slot-scope="scope" v-if="scope.row.userId !== 1">
+=======
+            width="180"
+            class-name="small-padding fixed-width"
+          >
+            <template slot-scope="scope">
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
               <el-button
                 size="mini"
                 type="text"
@@ -173,12 +240,17 @@
                 v-hasPermi="['system:user:edit']"
               >修改</el-button>
               <el-button
+<<<<<<< HEAD
+=======
+                v-if="scope.row.userId !== 1"
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
                 size="mini"
                 type="text"
                 icon="el-icon-delete"
                 @click="handleDelete(scope.row)"
                 v-hasPermi="['system:user:remove']"
               >删除</el-button>
+<<<<<<< HEAD
               <el-dropdown size="mini" @command="(command) => handleCommand(command, scope.row)" v-hasPermi="['system:user:resetPwd', 'system:user:edit']">
                 <el-button size="mini" type="text" icon="el-icon-d-arrow-right">更多</el-button>
                 <el-dropdown-menu slot="dropdown">
@@ -188,6 +260,15 @@
                     v-hasPermi="['system:user:edit']">分配角色</el-dropdown-item>
                 </el-dropdown-menu>
               </el-dropdown>
+=======
+              <el-button
+                size="mini"
+                type="text"
+                icon="el-icon-key"
+                @click="handleResetPwd(scope.row)"
+                v-hasPermi="['system:user:resetPwd']"
+              >重置</el-button>
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
             </template>
           </el-table-column>
         </el-table>
@@ -202,22 +283,37 @@
       </el-col>
     </el-row>
 
+<<<<<<< HEAD
     <!-- 添加或修改用户配置对话框 -->
     <el-dialog :title="title" :visible.sync="open" width="600px" append-to-body>
+=======
+    <!-- 添加或修改参数配置对话框 -->
+    <el-dialog :title="title" :visible.sync="open" width="600px">
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
       <el-form ref="form" :model="form" :rules="rules" label-width="80px">
         <el-row>
           <el-col :span="12">
             <el-form-item label="用户昵称" prop="nickName">
+<<<<<<< HEAD
               <el-input v-model="form.nickName" placeholder="请输入用户昵称" maxlength="30" />
+=======
+              <el-input v-model="form.nickName" placeholder="请输入用户昵称" />
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
             </el-form-item>
           </el-col>
           <el-col :span="12">
             <el-form-item label="归属部门" prop="deptId">
+<<<<<<< HEAD
               <treeselect v-model="form.deptId" :options="deptOptions" :show-count="true" placeholder="请选择归属部门" />
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
+=======
+              <treeselect v-model="form.deptId" :options="deptOptions" placeholder="请选择归属部门" />
+            </el-form-item>
+          </el-col>
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
           <el-col :span="12">
             <el-form-item label="手机号码" prop="phonenumber">
               <el-input v-model="form.phonenumber" placeholder="请输入手机号码" maxlength="11" />
@@ -228,15 +324,22 @@
               <el-input v-model="form.email" placeholder="请输入邮箱" maxlength="50" />
             </el-form-item>
           </el-col>
+<<<<<<< HEAD
         </el-row>
         <el-row>
           <el-col :span="12">
             <el-form-item v-if="form.userId == undefined" label="用户名称" prop="userName">
               <el-input v-model="form.userName" placeholder="请输入用户名称" maxlength="30" />
+=======
+          <el-col :span="12">
+            <el-form-item label="用户名称" prop="userName">
+              <el-input v-model="form.userName" placeholder="请输入用户名称" />
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
             </el-form-item>
           </el-col>
           <el-col :span="12">
             <el-form-item v-if="form.userId == undefined" label="用户密码" prop="password">
+<<<<<<< HEAD
               <el-input v-model="form.password" placeholder="请输入用户密码" type="password" maxlength="20" show-password/>
             </el-form-item>
           </el-col>
@@ -250,6 +353,19 @@
                   :key="dict.value"
                   :label="dict.label"
                   :value="dict.value"
+=======
+              <el-input v-model="form.password" placeholder="请输入用户密码" type="password" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item label="用户性别">
+              <el-select v-model="form.sex" placeholder="请选择">
+                <el-option
+                  v-for="dict in sexOptions"
+                  :key="dict.dictValue"
+                  :label="dict.dictLabel"
+                  :value="dict.dictValue"
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
                 ></el-option>
               </el-select>
             </el-form-item>
@@ -258,6 +374,7 @@
             <el-form-item label="状态">
               <el-radio-group v-model="form.status">
                 <el-radio
+<<<<<<< HEAD
                   v-for="dict in dict.type.sys_normal_disable"
                   :key="dict.value"
                   :label="dict.value"
@@ -270,6 +387,19 @@
           <el-col :span="12">
             <el-form-item label="岗位">
               <el-select v-model="form.postIds" multiple placeholder="请选择岗位">
+=======
+                  v-for="dict in statusOptions"
+                  :key="dict.dictValue"
+                  :label="dict.dictValue"
+                >{{dict.dictLabel}}</el-radio>
+              </el-radio-group>
+            </el-form-item>
+          </el-col>
+
+          <el-col :span="12">
+            <el-form-item label="岗位">
+              <el-select v-model="form.postIds" multiple placeholder="请选择">
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
                 <el-option
                   v-for="item in postOptions"
                   :key="item.postId"
@@ -282,7 +412,11 @@
           </el-col>
           <el-col :span="12">
             <el-form-item label="角色">
+<<<<<<< HEAD
               <el-select v-model="form.roleIds" multiple placeholder="请选择角色">
+=======
+              <el-select v-model="form.roleIds" multiple placeholder="请选择">
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
                 <el-option
                   v-for="item in roleOptions"
                   :key="item.roleId"
@@ -293,8 +427,11 @@
               </el-select>
             </el-form-item>
           </el-col>
+<<<<<<< HEAD
         </el-row>
         <el-row>
+=======
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
           <el-col :span="24">
             <el-form-item label="备注">
               <el-input v-model="form.remark" type="textarea" placeholder="请输入内容"></el-input>
@@ -307,6 +444,7 @@
         <el-button @click="cancel">取 消</el-button>
       </div>
     </el-dialog>
+<<<<<<< HEAD
 
     <!-- 用户导入对话框 -->
     <el-dialog :title="upload.title" :visible.sync="upload.open" width="400px" append-to-body>
@@ -337,23 +475,36 @@
         <el-button @click="upload.open = false">取 消</el-button>
       </div>
     </el-dialog>
+=======
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
 import { listUser, getUser, delUser, addUser, updateUser, resetUserPwd, changeUserStatus, deptTreeSelect } from "@/api/system/user";
 import { getToken } from "@/utils/auth";
+=======
+import { listUser, getUser, delUser, addUser, updateUser, resetUserPwd, changeUserStatus } from "@/api/system/user";
+import { treeselect } from "@/api/system/dept";
+import { listPost } from "@/api/system/post";
+import { listRole } from "@/api/system/role";
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
 import Treeselect from "@riophae/vue-treeselect";
 import "@riophae/vue-treeselect/dist/vue-treeselect.css";
 
 export default {
+<<<<<<< HEAD
   name: "User",
   dicts: ['sys_normal_disable', 'sys_user_sex'],
+=======
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
   components: { Treeselect },
   data() {
     return {
       // 遮罩层
       loading: true,
+<<<<<<< HEAD
       // 选中数组
       ids: [],
       // 非单个禁用
@@ -362,6 +513,8 @@ export default {
       multiple: true,
       // 显示搜索条件
       showSearch: true,
+=======
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
       // 总条数
       total: 0,
       // 用户表格数据
@@ -378,6 +531,13 @@ export default {
       initPassword: undefined,
       // 日期范围
       dateRange: [],
+<<<<<<< HEAD
+=======
+      // 状态数据字典
+      statusOptions: [],
+      // 性别状态字典
+      sexOptions: [],
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
       // 岗位选项
       postOptions: [],
       // 角色选项
@@ -388,6 +548,7 @@ export default {
         children: "children",
         label: "label"
       },
+<<<<<<< HEAD
       // 用户导入参数
       upload: {
         // 是否显示弹出层（用户导入）
@@ -403,6 +564,8 @@ export default {
         // 上传的地址
         url: process.env.VUE_APP_BASE_API + "/system/user/importData"
       },
+=======
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
       // 查询参数
       queryParams: {
         pageNum: 1,
@@ -412,6 +575,7 @@ export default {
         status: undefined,
         deptId: undefined
       },
+<<<<<<< HEAD
       // 列信息
       columns: [
         { key: 0, label: `用户编号`, visible: true },
@@ -427,18 +591,36 @@ export default {
         userName: [
           { required: true, message: "用户名称不能为空", trigger: "blur" },
           { min: 2, max: 20, message: '用户名称长度必须介于 2 和 20 之间', trigger: 'blur' }
+=======
+      // 表单校验
+      rules: {
+        userName: [
+          { required: true, message: "用户名称不能为空", trigger: "blur" }
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
         ],
         nickName: [
           { required: true, message: "用户昵称不能为空", trigger: "blur" }
         ],
+<<<<<<< HEAD
         password: [
           { required: true, message: "用户密码不能为空", trigger: "blur" },
           { min: 5, max: 20, message: '用户密码长度必须介于 5 和 20 之间', trigger: 'blur' }
+=======
+        deptId: [
+          { required: true, message: "归属部门不能为空", trigger: "blur" }
+        ],
+        password: [
+          { required: true, message: "用户密码不能为空", trigger: "blur" }
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
         ],
         email: [
           {
             type: "email",
+<<<<<<< HEAD
             message: "请输入正确的邮箱地址",
+=======
+            message: "'请输入正确的邮箱地址",
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
             trigger: ["blur", "change"]
           }
         ],
@@ -460,9 +642,21 @@ export default {
   },
   created() {
     this.getList();
+<<<<<<< HEAD
     this.getDeptTree();
     this.getConfigKey("sys.user.initPassword").then(response => {
       this.initPassword = response.msg;
+=======
+    this.getTreeselect();
+    this.getDicts("sys_normal_disable").then(response => {
+      this.statusOptions = response.data;
+    });
+    this.getDicts("sys_user_sex").then(response => {
+      this.sexOptions = response.data;
+    });
+    this.getConfigKey("sys.user.initPassword").then(response => {
+      this.initPassword = response.data;
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
     });
   },
   methods: {
@@ -477,8 +671,13 @@ export default {
       );
     },
     /** 查询部门下拉树结构 */
+<<<<<<< HEAD
     getDeptTree() {
       deptTreeSelect().then(response => {
+=======
+    getTreeselect() {
+      treeselect().then(response => {
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
         this.deptOptions = response.data;
       });
     },
@@ -490,11 +689,28 @@ export default {
     // 节点单击事件
     handleNodeClick(data) {
       this.queryParams.deptId = data.id;
+<<<<<<< HEAD
       this.handleQuery();
+=======
+      this.getList();
+    },
+    /** 查询岗位列表 */
+    getPosts() {
+      listPost().then(response => {
+        this.postOptions = response.rows;
+      });
+    },
+    /** 查询角色列表 */
+    getRoles() {
+      listRole().then(response => {
+        this.roleOptions = response.rows;
+      });
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
     },
     // 用户状态修改
     handleStatusChange(row) {
       let text = row.status === "0" ? "启用" : "停用";
+<<<<<<< HEAD
       this.$modal.confirm('确认要"' + text + '""' + row.userName + '"用户吗？').then(function() {
         return changeUserStatus(row.userId, row.status);
       }).then(() => {
@@ -502,6 +718,19 @@ export default {
       }).catch(function() {
         row.status = row.status === "0" ? "1" : "0";
       });
+=======
+      this.$confirm('确认要"' + text + '""' + row.userName + '"用户吗?', "警告", {
+          confirmButtonText: "确定",
+          cancelButtonText: "取消",
+          type: "warning"
+        }).then(function() {
+          return changeUserStatus(row.userId, row.status);
+        }).then(() => {
+          this.msgSuccess(text + "成功");
+        }).catch(function() {
+          row.status = row.status === "0" ? "1" : "0";
+        });
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
     },
     // 取消按钮
     cancel() {
@@ -512,10 +741,16 @@ export default {
     reset() {
       this.form = {
         userId: undefined,
+<<<<<<< HEAD
         deptId: undefined,
         userName: undefined,
         nickName: undefined,
         password: undefined,
+=======
+        deptId: 100,
+        userName: undefined,
+        nickName: undefined,
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
         phonenumber: undefined,
         email: undefined,
         sex: undefined,
@@ -528,6 +763,7 @@ export default {
     },
     /** 搜索按钮操作 */
     handleQuery() {
+<<<<<<< HEAD
       this.queryParams.pageNum = 1;
       this.getList();
     },
@@ -568,10 +804,25 @@ export default {
         this.title = "添加用户";
         this.form.password = this.initPassword;
       });
+=======
+      this.queryParams.page = 1;
+      this.getList();
+    },
+    /** 新增按钮操作 */
+    handleAdd() {
+      this.reset();
+      this.getTreeselect();
+      this.getPosts();
+      this.getRoles();
+      this.open = true;
+      this.title = "添加用户";
+      this.form.password = this.initPassword;
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
     },
     /** 修改按钮操作 */
     handleUpdate(row) {
       this.reset();
+<<<<<<< HEAD
       const userId = row.userId || this.ids;
       getUser(userId).then(response => {
         this.form = response.data;
@@ -579,6 +830,15 @@ export default {
         this.roleOptions = response.roles;
         this.$set(this.form, "postIds", response.postIds);
         this.$set(this.form, "roleIds", response.roleIds);
+=======
+      this.getTreeselect();
+      this.getPosts();
+      this.getRoles();
+      getUser(row.userId).then(response => {
+        this.form = response.data;
+        this.form.postIds = response.postIds;
+        this.form.roleIds = response.roleIds;
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
         this.open = true;
         this.title = "修改用户";
         this.form.password = "";
@@ -588,6 +848,7 @@ export default {
     handleResetPwd(row) {
       this.$prompt('请输入"' + row.userName + '"的新密码', "提示", {
         confirmButtonText: "确定",
+<<<<<<< HEAD
         cancelButtonText: "取消",
         closeOnClickModal: false,
         inputPattern: /^.{5,20}$/,
@@ -603,12 +864,26 @@ export default {
       const userId = row.userId;
       this.$router.push("/system/user-auth/role/" + userId);
     },
+=======
+        cancelButtonText: "取消"
+      }).then(({ value }) => {
+          resetUserPwd(row.userId, value).then(response => {
+            if (response.code === 200) {
+              this.msgSuccess("修改成功，新密码是：" + value);
+            } else {
+              this.msgError(response.msg);
+            }
+          });
+        }).catch(() => {});
+    },
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
     /** 提交按钮 */
     submitForm: function() {
       this.$refs["form"].validate(valid => {
         if (valid) {
           if (this.form.userId != undefined) {
             updateUser(this.form).then(response => {
+<<<<<<< HEAD
               this.$modal.msgSuccess("修改成功");
               this.open = false;
               this.getList();
@@ -618,6 +893,25 @@ export default {
               this.$modal.msgSuccess("新增成功");
               this.open = false;
               this.getList();
+=======
+              if (response.code === 200) {
+                this.msgSuccess("修改成功");
+                this.open = false;
+                this.getList();
+              } else {
+                this.msgError(response.msg);
+              }
+            });
+          } else {
+            addUser(this.form).then(response => {
+              if (response.code === 200) {
+                this.msgSuccess("新增成功");
+                this.open = false;
+                this.getList();
+              } else {
+                this.msgError(response.msg);
+              }
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
             });
           }
         }
@@ -625,6 +919,7 @@ export default {
     },
     /** 删除按钮操作 */
     handleDelete(row) {
+<<<<<<< HEAD
       const userIds = row.userId || this.ids;
       this.$modal.confirm('是否确认删除用户编号为"' + userIds + '"的数据项？').then(function() {
         return delUser(userIds);
@@ -664,6 +959,18 @@ export default {
     // 提交上传文件
     submitFileForm() {
       this.$refs.upload.submit();
+=======
+      this.$confirm('是否确认删除名称为"' + row.userName + '"的数据项?', "警告", {
+          confirmButtonText: "确定",
+          cancelButtonText: "取消",
+          type: "warning"
+        }).then(function() {
+          return delUser(row.userId);
+        }).then(() => {
+          this.getList();
+          this.msgSuccess("删除成功");
+        }).catch(function() {});
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
     }
   }
 };

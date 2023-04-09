@@ -5,7 +5,12 @@
     </div>
     <el-dropdown-menu slot="dropdown">
       <el-dropdown-item v-for="item of sizeOptions" :key="item.value" :disabled="size===item.value" :command="item.value">
+<<<<<<< HEAD
         {{ item.label }}
+=======
+        {{
+          item.label }}
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
       </el-dropdown-item>
     </el-dropdown-menu>
   </el-dropdown>

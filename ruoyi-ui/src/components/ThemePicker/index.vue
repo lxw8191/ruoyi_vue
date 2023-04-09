@@ -31,6 +31,7 @@ export default {
       immediate: true
     },
     async theme(val) {
+<<<<<<< HEAD
       await this.setTheme(val)
     }
   },
@@ -42,10 +43,24 @@ export default {
 
   methods: {
     async setTheme(val) {
+=======
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
       const oldVal = this.chalk ? this.theme : ORIGINAL_THEME
       if (typeof val !== 'string') return
       const themeCluster = this.getThemeCluster(val.replace('#', ''))
       const originalCluster = this.getThemeCluster(oldVal.replace('#', ''))
+<<<<<<< HEAD
+=======
+      console.log(themeCluster, originalCluster)
+
+      const $message = this.$message({
+        message: '  Compiling the theme',
+        customClass: 'theme-message',
+        type: 'success',
+        duration: 0,
+        iconClass: 'el-icon-loading'
+      })
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
 
       const getHandler = (variable, id) => {
         return () => {
@@ -83,8 +98,17 @@ export default {
       })
 
       this.$emit('change', val)
+<<<<<<< HEAD
     },
 
+=======
+
+      $message.close()
+    }
+  },
+
+  methods: {
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
     updateStyle(style, oldCluster, newCluster) {
       let newStyle = style
       oldCluster.forEach((color, index) => {

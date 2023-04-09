@@ -1,5 +1,6 @@
 const state = {
   visitedViews: [],
+<<<<<<< HEAD
   cachedViews: [],
   iframeViews: []
 }
@@ -13,6 +14,12 @@ const mutations = {
       })
     )
   },
+=======
+  cachedViews: []
+}
+
+const mutations = {
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
   ADD_VISITED_VIEW: (state, view) => {
     if (state.visitedViews.some(v => v.path === view.path)) return
     state.visitedViews.push(
@@ -23,10 +30,18 @@ const mutations = {
   },
   ADD_CACHED_VIEW: (state, view) => {
     if (state.cachedViews.includes(view.name)) return
+<<<<<<< HEAD
     if (view.meta && !view.meta.noCache) {
       state.cachedViews.push(view.name)
     }
   },
+=======
+    if (!view.meta.noCache) {
+      state.cachedViews.push(view.name)
+    }
+  },
+
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
   DEL_VISITED_VIEW: (state, view) => {
     for (const [i, v] of state.visitedViews.entries()) {
       if (v.path === view.path) {
@@ -34,6 +49,7 @@ const mutations = {
         break
       }
     }
+<<<<<<< HEAD
     state.iframeViews = state.iframeViews.filter(item => item.path !== view.path)
   },
   DEL_IFRAME_VIEW: (state, view) => {
@@ -42,12 +58,24 @@ const mutations = {
   DEL_CACHED_VIEW: (state, view) => {
     const index = state.cachedViews.indexOf(view.name)
     index > -1 && state.cachedViews.splice(index, 1)
+=======
+  },
+  DEL_CACHED_VIEW: (state, view) => {
+    for (const i of state.cachedViews) {
+      if (i === view.name) {
+        const index = state.cachedViews.indexOf(i)
+        state.cachedViews.splice(index, 1)
+        break
+      }
+    }
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
   },
 
   DEL_OTHERS_VISITED_VIEWS: (state, view) => {
     state.visitedViews = state.visitedViews.filter(v => {
       return v.meta.affix || v.path === view.path
     })
+<<<<<<< HEAD
     state.iframeViews = state.iframeViews.filter(item => item.path === view.path)
   },
   DEL_OTHERS_CACHED_VIEWS: (state, view) => {
@@ -58,15 +86,35 @@ const mutations = {
       state.cachedViews = []
     }
   },
+=======
+  },
+  DEL_OTHERS_CACHED_VIEWS: (state, view) => {
+    for (const i of state.cachedViews) {
+      if (i === view.name) {
+        const index = state.cachedViews.indexOf(i)
+        state.cachedViews = state.cachedViews.slice(index, index + 1)
+        break
+      }
+    }
+  },
+
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
   DEL_ALL_VISITED_VIEWS: state => {
     // keep affix tags
     const affixTags = state.visitedViews.filter(tag => tag.meta.affix)
     state.visitedViews = affixTags
+<<<<<<< HEAD
     state.iframeViews = []
+=======
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
   },
   DEL_ALL_CACHED_VIEWS: state => {
     state.cachedViews = []
   },
+<<<<<<< HEAD
+=======
+
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
   UPDATE_VISITED_VIEW: (state, view) => {
     for (let v of state.visitedViews) {
       if (v.path === view.path) {
@@ -74,6 +122,7 @@ const mutations = {
         break
       }
     }
+<<<<<<< HEAD
   },
   DEL_RIGHT_VIEWS: (state, view) => {
     const index = state.visitedViews.findIndex(v => v.path === view.path)
@@ -114,6 +163,8 @@ const mutations = {
       }
       return false
     })
+=======
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
   }
 }
 
@@ -122,15 +173,22 @@ const actions = {
     dispatch('addVisitedView', view)
     dispatch('addCachedView', view)
   },
+<<<<<<< HEAD
   addIframeView({ commit }, view) {
     commit('ADD_IFRAME_VIEW', view)
   },
+=======
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
   addVisitedView({ commit }, view) {
     commit('ADD_VISITED_VIEW', view)
   },
   addCachedView({ commit }, view) {
     commit('ADD_CACHED_VIEW', view)
   },
+<<<<<<< HEAD
+=======
+
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
   delView({ dispatch, state }, view) {
     return new Promise(resolve => {
       dispatch('delVisitedView', view)
@@ -147,18 +205,25 @@ const actions = {
       resolve([...state.visitedViews])
     })
   },
+<<<<<<< HEAD
   delIframeView({ commit, state }, view) {
     return new Promise(resolve => {
       commit('DEL_IFRAME_VIEW', view)
       resolve([...state.iframeViews])
     })
   },
+=======
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
   delCachedView({ commit, state }, view) {
     return new Promise(resolve => {
       commit('DEL_CACHED_VIEW', view)
       resolve([...state.cachedViews])
     })
   },
+<<<<<<< HEAD
+=======
+
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
   delOthersViews({ dispatch, state }, view) {
     return new Promise(resolve => {
       dispatch('delOthersVisitedViews', view)
@@ -181,6 +246,10 @@ const actions = {
       resolve([...state.cachedViews])
     })
   },
+<<<<<<< HEAD
+=======
+
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
   delAllViews({ dispatch, state }, view) {
     return new Promise(resolve => {
       dispatch('delAllVisitedViews', view)
@@ -203,6 +272,7 @@ const actions = {
       resolve([...state.cachedViews])
     })
   },
+<<<<<<< HEAD
   updateVisitedView({ commit }, view) {
     commit('UPDATE_VISITED_VIEW', view)
   },
@@ -218,6 +288,12 @@ const actions = {
       resolve([...state.visitedViews])
     })
   },
+=======
+
+  updateVisitedView({ commit }, view) {
+    commit('UPDATE_VISITED_VIEW', view)
+  }
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
 }
 
 export default {

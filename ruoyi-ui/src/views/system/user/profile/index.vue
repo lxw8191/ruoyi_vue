@@ -33,7 +33,11 @@
               </li>
               <li class="list-group-item">
                 <svg-icon icon-class="date" />创建日期
+<<<<<<< HEAD
                 <div class="pull-right">{{ user.createTime }}</div>
+=======
+                <div class="pull-right">2018-08-23 09:11:56</div>
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
               </li>
             </ul>
           </div>
@@ -49,7 +53,11 @@
               <userInfo :user="user" />
             </el-tab-pane>
             <el-tab-pane label="修改密码" name="resetPwd">
+<<<<<<< HEAD
               <resetPwd />
+=======
+              <resetPwd :user="user" />
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
             </el-tab-pane>
           </el-tabs>
         </el-card>
@@ -89,3 +97,16 @@ export default {
   }
 };
 </script>
+<<<<<<< HEAD
+=======
+
+<style rel="stylesheet/scss" lang="scss">
+.avatar-uploader-icon {
+  font-size: 28px;
+  width: 120px;
+  height: 120px;
+  line-height: 120px;
+  text-align: center;
+}
+</style>
+>>>>>>> 46444bd (RuoYi-Vue 1.0)

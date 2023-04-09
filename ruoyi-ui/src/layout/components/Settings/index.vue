@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <el-drawer size="280px" :visible="visible" :with-header="false" :append-to-body="true" :show-close="false">
     <div class="drawer-container">
       <div>
@@ -38,7 +39,7 @@
         <el-divider/>
 
         <h3 class="drawer-title">系统布局配置</h3>
-      
+
         <div class="drawer-item">
           <span>开启 TopNav</span>
           <el-switch v-model="topNav" class="drawer-switch" />
@@ -71,6 +72,34 @@
       </div>
     </div>
   </el-drawer>
+=======
+  <div class="drawer-container">
+    <div>
+      <h3 class="drawer-title">系统布局配置</h3>
+
+      <div class="drawer-item">
+        <span>主题颜色</span>
+        <theme-picker style="float: right;height: 26px;margin: -3px 8px 0 0;" @change="themeChange" />
+      </div>
+
+      <div class="drawer-item">
+        <span>开启 Tags-Views</span>
+        <el-switch v-model="tagsView" class="drawer-switch" />
+      </div>
+
+      <div class="drawer-item">
+        <span>固定 Header</span>
+        <el-switch v-model="fixedHeader" class="drawer-switch" />
+      </div>
+
+      <div class="drawer-item">
+        <span>显示 Logo</span>
+        <el-switch v-model="sidebarLogo" class="drawer-switch" />
+      </div>
+
+    </div>
+  </div>
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
 </template>
 
 <script>
@@ -79,6 +108,7 @@ import ThemePicker from '@/components/ThemePicker'
 export default {
   components: { ThemePicker },
   data() {
+<<<<<<< HEAD
     return {
       theme: this.$store.state.settings.theme,
       sideTheme: this.$store.state.settings.sideTheme
@@ -90,6 +120,11 @@ export default {
         return this.$store.state.settings.showSettings
       }
     },
+=======
+    return {}
+  },
+  computed: {
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
     fixedHeader: {
       get() {
         return this.$store.state.settings.fixedHeader
@@ -101,6 +136,7 @@ export default {
         })
       }
     },
+<<<<<<< HEAD
     topNav: {
       get() {
         return this.$store.state.settings.topNav
@@ -116,6 +152,8 @@ export default {
         }
       }
     },
+=======
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
     tagsView: {
       get() {
         return this.$store.state.settings.tagsView
@@ -138,6 +176,7 @@ export default {
         })
       }
     },
+<<<<<<< HEAD
     dynamicTitle: {
       get() {
         return this.$store.state.settings.dynamicTitle
@@ -149,6 +188,8 @@ export default {
         })
       }
     },
+=======
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
   },
   methods: {
     themeChange(val) {
@@ -156,6 +197,7 @@ export default {
         key: 'theme',
         value: val
       })
+<<<<<<< HEAD
       this.theme = val;
     },
     handleTheme(val) {
@@ -185,12 +227,15 @@ export default {
       this.$modal.loading("正在清除设置缓存并刷新，请稍候...");
       this.$cache.local.remove("layout-setting")
       setTimeout("window.location.reload()", 1000)
+=======
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+<<<<<<< HEAD
   .setting-drawer-content {
     .setting-drawer-title {
       margin-bottom: 12px;
@@ -257,4 +302,29 @@ export default {
       float: right
     }
   }
+=======
+.drawer-container {
+  padding: 24px;
+  font-size: 14px;
+  line-height: 1.5;
+  word-wrap: break-word;
+
+  .drawer-title {
+    margin-bottom: 12px;
+    color: rgba(0, 0, 0, .85);
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .drawer-item {
+    color: rgba(0, 0, 0, .65);
+    font-size: 14px;
+    padding: 12px 0;
+  }
+
+  .drawer-switch {
+    float: right
+  }
+}
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
 </style>

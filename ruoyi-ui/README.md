@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## 开发
 
 ```bash
@@ -26,5 +27,35 @@ npm run dev
 npm run build:stage
 
 # 构建生产环境
+=======
+## ����
+
+```bash
+# ��¡��Ŀ
+git clone https://gitee.com/y_project/RuoYi-Vue
+
+# ������ĿĿ¼
+cd ruoyi-ui
+
+# ��װ����
+npm install
+
+# ���鲻Ҫֱ��ʹ�� cnpm ��װ���������и��ֹ���� bug������ͨ�����²������ npm �����ٶ���������
+npm install --registry=https://registry.npm.taobao.org
+
+# ��������
+npm run dev
+```
+
+��������� http://localhost:80
+
+## ����
+
+```bash
+# �������Ի���
+npm run build:stage
+
+# ������������
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
 npm run build:prod
 ```

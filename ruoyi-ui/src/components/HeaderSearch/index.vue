@@ -12,7 +12,11 @@
       class="header-search-select"
       @change="change"
     >
+<<<<<<< HEAD
       <el-option v-for="option in options" :key="option.item.path" :value="option.item" :label="option.item.title.join(' > ')" />
+=======
+      <el-option v-for="item in options" :key="item.path" :value="item" :label="item.title.join(' > ')" />
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
     </el-select>
   </div>
 </template>
@@ -20,7 +24,11 @@
 <script>
 // fuse is a lightweight fuzzy-search module
 // make search results more in line with expectations
+<<<<<<< HEAD
 import Fuse from 'fuse.js/dist/fuse.min.js'
+=======
+import Fuse from 'fuse.js'
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
 import path from 'path'
 
 export default {
@@ -70,6 +78,7 @@ export default {
       this.show = false
     },
     change(val) {
+<<<<<<< HEAD
       const path = val.path;
       if(this.ishttp(val.path)) {
         // http(s):// 路径新窗口打开
@@ -78,6 +87,9 @@ export default {
       } else {
         this.$router.push(val.path)
       }
+=======
+      this.$router.push(val.path)
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
       this.search = ''
       this.options = []
       this.$nextTick(() => {
@@ -90,6 +102,10 @@ export default {
         threshold: 0.4,
         location: 0,
         distance: 100,
+<<<<<<< HEAD
+=======
+        maxPatternLength: 32,
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
         minMatchCharLength: 1,
         keys: [{
           name: 'title',
@@ -110,7 +126,11 @@ export default {
         if (router.hidden) { continue }
 
         const data = {
+<<<<<<< HEAD
           path: !this.ishttp(router.path) ? path.resolve(basePath, router.path) : router.path,
+=======
+          path: path.resolve(basePath, router.path),
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
           title: [...prefixTitle]
         }
 
@@ -140,9 +160,12 @@ export default {
       } else {
         this.options = []
       }
+<<<<<<< HEAD
     },
     ishttp(url) {
       return url.indexOf('http://') !== -1 || url.indexOf('https://') !== -1
+=======
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
     }
   }
 }
@@ -168,7 +191,11 @@ export default {
     display: inline-block;
     vertical-align: middle;
 
+<<<<<<< HEAD
     ::v-deep .el-input__inner {
+=======
+    /deep/ .el-input__inner {
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
       border-radius: 0;
       border: 0;
       padding-left: 0;

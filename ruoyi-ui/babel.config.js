@@ -1,5 +1,6 @@
 module.exports = {
   presets: [
+<<<<<<< HEAD
     // https://github.com/vuejs/vue-cli/tree/master/packages/@vue/babel-preset-app
     '@vue/cli-plugin-babel/preset'
   ],
@@ -11,3 +12,8 @@ module.exports = {
     }
   }
 }
+=======
+    '@vue/app'
+  ]
+}
+>>>>>>> 46444bd (RuoYi-Vue 1.0)

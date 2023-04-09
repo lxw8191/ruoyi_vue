@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <template>
   <div class="app-container">
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
@@ -335,3 +336,10 @@ export default {
   }
 };
 </script>
+=======
+<template>
+  <div class="app-container">
+   代码生成
+  </div>
+</template>
+>>>>>>> 46444bd (RuoYi-Vue 1.0)

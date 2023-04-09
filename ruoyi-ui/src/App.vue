@@ -1,11 +1,15 @@
 <template>
   <div id="app">
     <router-view />
+<<<<<<< HEAD
     <theme-picker />
+=======
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
 import ThemePicker from "@/components/ThemePicker";
 
 export default {
@@ -26,3 +30,9 @@ export default {
   display: none;
 }
 </style>
+=======
+export default  {
+  name:  'App'
+}
+</script>
+>>>>>>> 46444bd (RuoYi-Vue 1.0)

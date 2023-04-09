@@ -1,8 +1,14 @@
 <template>
   <div class="app-container">
+<<<<<<< HEAD
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
       <el-form-item label="字典名称" prop="dictType">
         <el-select v-model="queryParams.dictType">
+=======
+    <el-form :inline="true">
+      <el-form-item label="字典名称">
+        <el-select v-model="queryParams.dictType" size="small">
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
           <el-option
             v-for="item in typeOptions"
             :key="item.dictId"
@@ -11,11 +17,16 @@
           />
         </el-select>
       </el-form-item>
+<<<<<<< HEAD
       <el-form-item label="字典标签" prop="dictLabel">
+=======
+      <el-form-item label="字典标签">
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
         <el-input
           v-model="queryParams.dictLabel"
           placeholder="请输入字典标签"
           clearable
+<<<<<<< HEAD
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
@@ -26,11 +37,25 @@
             :key="dict.value"
             :label="dict.label"
             :value="dict.value"
+=======
+          size="small"
+          @keyup.enter.native="handleQuery"
+        />
+      </el-form-item>
+      <el-form-item label="状态">
+        <el-select v-model="queryParams.status" placeholder="数据状态" clearable size="small">
+          <el-option
+            v-for="dict in statusOptions"
+            :key="dict.dictValue"
+            :label="dict.dictLabel"
+            :value="dict.dictValue"
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
           />
         </el-select>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
+<<<<<<< HEAD
         <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
       </el-form-item>
     </el-form>
@@ -110,14 +135,37 @@
       <el-table-column label="创建时间" align="center" prop="createTime" width="180">
         <template slot-scope="scope">
           <span>{{ parseTime(scope.row.createTime) }}</span>
+=======
+        <el-button type="primary" icon="el-icon-plus" size="mini" @click="handleAdd" v-hasPermi="['system:dict:add']">新增</el-button>
+      </el-form-item>
+    </el-form>
+
+    <el-table v-loading="loading" :data="dataList" style="width: 100%;">
+      <el-table-column label="字典编码" align="center" prop="dictCode" />
+      <el-table-column label="字典标签" align="center" prop="dictLabel" />
+      <el-table-column label="字典键值" align="center" prop="dictValue" />
+      <el-table-column label="字典排序" align="center" prop="dictSort" />
+      <el-table-column label="状态" align="center" prop="status" :formatter="statusFormat" />
+      <el-table-column label="备注" align="center" prop="remark" :show-overflow-tooltip="true" />
+      <el-table-column label="创建时间" align="center" prop="createTime" width="180">
+        <template slot-scope="scope">
+          <span>{{ dateFormat(scope.row.createTime) }}</span>
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
         </template>
       </el-table-column>
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
+<<<<<<< HEAD
           <el-button
             size="mini"
             type="text"
             icon="el-icon-edit"
+=======
+          <el-button
+            size="mini"
+            type="text"
+            icon="el-icon-edit"
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
             @click="handleUpdate(scope.row)"
             v-hasPermi="['system:dict:edit']"
           >修改</el-button>
@@ -141,7 +189,11 @@
     />
 
     <!-- 添加或修改参数配置对话框 -->
+<<<<<<< HEAD
     <el-dialog :title="title" :visible.sync="open" width="500px" append-to-body>
+=======
+    <el-dialog :title="title" :visible.sync="open" width="500px">
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
       <el-form ref="form" :model="form" :rules="rules" label-width="80px">
         <el-form-item label="字典类型">
           <el-input v-model="form.dictType" :disabled="true" />
@@ -152,6 +204,7 @@
         <el-form-item label="数据键值" prop="dictValue">
           <el-input v-model="form.dictValue" placeholder="请输入数据键值" />
         </el-form-item>
+<<<<<<< HEAD
         <el-form-item label="样式属性" prop="cssClass">
           <el-input v-model="form.cssClass" placeholder="请输入样式属性" />
         </el-form-item>
@@ -175,6 +228,18 @@
               :key="dict.value"
               :label="dict.value"
             >{{dict.label}}</el-radio>
+=======
+        <el-form-item label="显示排序" prop="dictSort">
+          <el-input-number v-model="form.dictSort" controls-position="right" :min="0" />
+        </el-form-item>
+        <el-form-item label="状态" prop="status">
+          <el-radio-group v-model="form.status">
+            <el-radio
+              v-for="dict in statusOptions"
+              :key="dict.dictValue"
+              :label="dict.dictValue"
+            >{{dict.dictLabel}}</el-radio>
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
           </el-radio-group>
         </el-form-item>
         <el-form-item label="备注" prop="remark">
@@ -191,15 +256,22 @@
 
 <script>
 import { listData, getData, delData, addData, updateData } from "@/api/system/dict/data";
+<<<<<<< HEAD
 import { optionselect as getDictOptionselect, getType } from "@/api/system/dict/type";
 
 export default {
   name: "Data",
   dicts: ['sys_normal_disable'],
+=======
+import { listType, getType } from "@/api/system/dict/type";
+
+export default {
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
   data() {
     return {
       // 遮罩层
       loading: true,
+<<<<<<< HEAD
       // 选中数组
       ids: [],
       // 非单个禁用
@@ -208,16 +280,22 @@ export default {
       multiple: true,
       // 显示搜索条件
       showSearch: true,
+=======
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
       // 总条数
       total: 0,
       // 字典表格数据
       dataList: [],
+<<<<<<< HEAD
       // 默认字典类型
       defaultDictType: "",
+=======
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
       // 弹出层标题
       title: "",
       // 是否显示弹出层
       open: false,
+<<<<<<< HEAD
       // 数据标签回显样式
       listClassOptions: [
         {
@@ -245,6 +323,10 @@ export default {
           label: "危险"
         }
       ],
+=======
+      // 状态数据字典
+      statusOptions: [],
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
       // 类型数据字典
       typeOptions: [],
       // 查询参数
@@ -275,20 +357,34 @@ export default {
     const dictId = this.$route.params && this.$route.params.dictId;
     this.getType(dictId);
     this.getTypeList();
+<<<<<<< HEAD
+=======
+    this.getDicts("sys_normal_disable").then(response => {
+      this.statusOptions = response.data;
+    });
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
   },
   methods: {
     /** 查询字典类型详细 */
     getType(dictId) {
       getType(dictId).then(response => {
         this.queryParams.dictType = response.data.dictType;
+<<<<<<< HEAD
         this.defaultDictType = response.data.dictType;
+=======
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
         this.getList();
       });
     },
     /** 查询字典类型列表 */
     getTypeList() {
+<<<<<<< HEAD
       getDictOptionselect().then(response => {
         this.typeOptions = response.data;
+=======
+      listType().then(response => {
+        this.typeOptions = response.rows;
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
       });
     },
     /** 查询字典数据列表 */
@@ -300,6 +396,13 @@ export default {
         this.loading = false;
       });
     },
+<<<<<<< HEAD
+=======
+    // 数据状态字典翻译
+    statusFormat(row, column) {
+      return this.selectDictLabel(this.statusOptions, row.status);
+    },
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
     // 取消按钮
     cancel() {
       this.open = false;
@@ -311,8 +414,11 @@ export default {
         dictCode: undefined,
         dictLabel: undefined,
         dictValue: undefined,
+<<<<<<< HEAD
         cssClass: undefined,
         listClass: 'default',
+=======
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
         dictSort: 0,
         status: "0",
         remark: undefined
@@ -324,6 +430,7 @@ export default {
       this.queryParams.pageNum = 1;
       this.getList();
     },
+<<<<<<< HEAD
     /** 返回按钮操作 */
     handleClose() {
       const obj = { path: "/system/dict" };
@@ -335,6 +442,8 @@ export default {
       this.queryParams.dictType = this.defaultDictType;
       this.handleQuery();
     },
+=======
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
     /** 新增按钮操作 */
     handleAdd() {
       this.reset();
@@ -342,6 +451,7 @@ export default {
       this.title = "添加字典数据";
       this.form.dictType = this.queryParams.dictType;
     },
+<<<<<<< HEAD
     // 多选框选中数据
     handleSelectionChange(selection) {
       this.ids = selection.map(item => item.dictCode)
@@ -353,6 +463,12 @@ export default {
       this.reset();
       const dictCode = row.dictCode || this.ids
       getData(dictCode).then(response => {
+=======
+    /** 修改按钮操作 */
+    handleUpdate(row) {
+      this.reset();
+      getData(row.dictCode).then(response => {
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
         this.form = response.data;
         this.open = true;
         this.title = "修改字典数据";
@@ -364,6 +480,7 @@ export default {
         if (valid) {
           if (this.form.dictCode != undefined) {
             updateData(this.form).then(response => {
+<<<<<<< HEAD
               this.$store.dispatch('dict/removeDict', this.queryParams.dictType);
               this.$modal.msgSuccess("修改成功");
               this.open = false;
@@ -375,6 +492,25 @@ export default {
               this.$modal.msgSuccess("新增成功");
               this.open = false;
               this.getList();
+=======
+              if (response.code === 200) {
+                this.msgSuccess("修改成功");
+                this.open = false;
+                this.getList();
+              } else {
+                this.msgError(response.msg);
+              }
+            });
+          } else {
+            addData(this.form).then(response => {
+              if (response.code === 200) {
+                this.msgSuccess("新增成功");
+                this.open = false;
+                this.getList();
+              } else {
+                this.msgError(response.msg);
+              }
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
             });
           }
         }
@@ -382,6 +518,7 @@ export default {
     },
     /** 删除按钮操作 */
     handleDelete(row) {
+<<<<<<< HEAD
       const dictCodes = row.dictCode || this.ids;
       this.$modal.confirm('是否确认删除字典编码为"' + dictCodes + '"的数据项？').then(function() {
         return delData(dictCodes);
@@ -396,6 +533,18 @@ export default {
       this.download('system/dict/data/export', {
         ...this.queryParams
       }, `data_${new Date().getTime()}.xlsx`)
+=======
+      this.$confirm('是否确认删除名称为"' + row.dictLabel + '"的数据项?', "警告", {
+          confirmButtonText: "确定",
+          cancelButtonText: "取消",
+          type: "warning"
+        }).then(function() {
+          return delData(row.dictCode);
+        }).then(() => {
+          this.getList();
+          this.msgSuccess("删除成功");
+        }).catch(function() {});
+>>>>>>> 46444bd (RuoYi-Vue 1.0)
     }
   }
 };
