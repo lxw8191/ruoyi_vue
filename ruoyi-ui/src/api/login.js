@@ -10,7 +10,6 @@ export function login(username, password, code, uuid) {
   }
   return request({
     url: '/login',
-<<<<<<< HEAD
     headers: {
       isToken: false
     },
@@ -28,10 +27,6 @@ export function register(data) {
     },
     method: 'post',
     data: data
-=======
-    method: 'post',
-    params: data
->>>>>>> 46444bd (RuoYi-Vue 1.0)
   })
 }
 
@@ -55,14 +50,10 @@ export function logout() {
 export function getCodeImg() {
   return request({
     url: '/captchaImage',
-<<<<<<< HEAD
     headers: {
       isToken: false
     },
     method: 'get',
     timeout: 20000
-=======
-    method: 'get'
->>>>>>> 46444bd (RuoYi-Vue 1.0)
   })
 }

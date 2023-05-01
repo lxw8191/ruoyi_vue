@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <template>
   <div class="container">
     <div class="left-board">
@@ -767,10 +766,3 @@ $lighterBlue: #409EFF;
   }
 }
 </style>
-=======
-<template>
-  <div class="app-container">
-   构建工具
-  </div>
-</template>
->>>>>>> 46444bd (RuoYi-Vue 1.0)

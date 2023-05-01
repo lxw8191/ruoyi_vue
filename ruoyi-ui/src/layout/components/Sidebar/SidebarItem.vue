@@ -1,13 +1,7 @@
 <template>
-<<<<<<< HEAD
   <div v-if="!item.hidden">
     <template v-if="hasOneShowingChild(item.children,item) && (!onlyOneChild.children||onlyOneChild.noShowingChildren)&&!item.alwaysShow">
       <app-link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path, onlyOneChild.query)">
-=======
-  <div v-if="!item.hidden" class="menu-wrapper">
-    <template v-if="hasOneShowingChild(item.children,item) && (!onlyOneChild.children||onlyOneChild.noShowingChildren)&&!item.alwaysShow">
-      <app-link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">
->>>>>>> 46444bd (RuoYi-Vue 1.0)
         <el-menu-item :index="resolvePath(onlyOneChild.path)" :class="{'submenu-title-noDropdown':!isNest}">
           <item :icon="onlyOneChild.meta.icon||(item.meta&&item.meta.icon)" :title="onlyOneChild.meta.title" />
         </el-menu-item>
@@ -62,12 +56,9 @@ export default {
   },
   methods: {
     hasOneShowingChild(children = [], parent) {
-<<<<<<< HEAD
       if (!children) {
         children = [];
       }
-=======
->>>>>>> 46444bd (RuoYi-Vue 1.0)
       const showingChildren = children.filter(item => {
         if (item.hidden) {
           return false
@@ -91,24 +82,17 @@ export default {
 
       return false
     },
-<<<<<<< HEAD
     resolvePath(routePath, routeQuery) {
-=======
-    resolvePath(routePath) {
->>>>>>> 46444bd (RuoYi-Vue 1.0)
       if (isExternal(routePath)) {
         return routePath
       }
       if (isExternal(this.basePath)) {
         return this.basePath
       }
-<<<<<<< HEAD
       if (routeQuery) {
         let query = JSON.parse(routeQuery);
         return { path: path.resolve(this.basePath, routePath), query: query }
       }
-=======
->>>>>>> 46444bd (RuoYi-Vue 1.0)
       return path.resolve(this.basePath, routePath)
     }
   }

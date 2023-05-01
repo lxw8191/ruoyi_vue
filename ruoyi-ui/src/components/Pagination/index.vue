@@ -6,10 +6,7 @@
       :page-size.sync="pageSize"
       :layout="layout"
       :page-sizes="pageSizes"
-<<<<<<< HEAD
       :pager-count="pagerCount"
-=======
->>>>>>> 46444bd (RuoYi-Vue 1.0)
       :total="total"
       v-bind="$attrs"
       @size-change="handleSizeChange"
@@ -42,14 +39,11 @@ export default {
         return [10, 20, 30, 50]
       }
     },
-<<<<<<< HEAD
     // 移动端页码按钮的数量端默认值5
     pagerCount: {
       type: Number,
       default: document.body.clientWidth < 992 ? 5 : 7
     },
-=======
->>>>>>> 46444bd (RuoYi-Vue 1.0)
     layout: {
       type: String,
       default: 'total, sizes, prev, pager, next, jumper'
@@ -67,13 +61,10 @@ export default {
       default: false
     }
   },
-<<<<<<< HEAD
   data() {
     return {
     };
   },
-=======
->>>>>>> 46444bd (RuoYi-Vue 1.0)
   computed: {
     currentPage: {
       get() {
@@ -94,12 +85,9 @@ export default {
   },
   methods: {
     handleSizeChange(val) {
-<<<<<<< HEAD
       if (this.currentPage * val > this.total) {
         this.currentPage = 1
       }
-=======
->>>>>>> 46444bd (RuoYi-Vue 1.0)
       this.$emit('pagination', { page: this.currentPage, limit: val })
       if (this.autoScroll) {
         scrollTo(0, 800)

@@ -1,8 +1,5 @@
 import request from '@/utils/request'
-<<<<<<< HEAD
 import { parseStrEmpty } from "@/utils/ruoyi";
-=======
->>>>>>> 46444bd (RuoYi-Vue 1.0)
 
 // 查询用户列表
 export function listUser(query) {
@@ -16,11 +13,7 @@ export function listUser(query) {
 // 查询用户详细
 export function getUser(userId) {
   return request({
-<<<<<<< HEAD
     url: '/system/user/' + parseStrEmpty(userId),
-=======
-    url: '/system/user/' + userId,
->>>>>>> 46444bd (RuoYi-Vue 1.0)
     method: 'get'
   })
 }
@@ -114,7 +107,6 @@ export function uploadAvatar(data) {
     method: 'post',
     data: data
   })
-<<<<<<< HEAD
 }
 
 // 查询授权角色
@@ -141,6 +133,3 @@ export function deptTreeSelect() {
     method: 'get'
   })
 }
-=======
-}
->>>>>>> 46444bd (RuoYi-Vue 1.0)

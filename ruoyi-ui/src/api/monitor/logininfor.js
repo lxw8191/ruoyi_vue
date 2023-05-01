@@ -7,7 +7,6 @@ export function list(query) {
     method: 'get',
     params: query
   })
-<<<<<<< HEAD
 }
 
 // 删除登录日志
@@ -33,6 +32,3 @@ export function cleanLogininfor() {
     method: 'delete'
   })
 }
-=======
-}
->>>>>>> 46444bd (RuoYi-Vue 1.0)

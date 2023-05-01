@@ -1,12 +1,8 @@
 <template>
   <el-form ref="form" :model="user" :rules="rules" label-width="80px">
     <el-form-item label="用户昵称" prop="nickName">
-<<<<<<< HEAD
       <el-input v-model="user.nickName" maxlength="30" />
-=======
-      <el-input v-model="user.nickName" />
->>>>>>> 46444bd (RuoYi-Vue 1.0)
-    </el-form-item>
+    </el-form-item> 
     <el-form-item label="手机号码" prop="phonenumber">
       <el-input v-model="user.phonenumber" maxlength="11" />
     </el-form-item>
@@ -46,11 +42,7 @@ export default {
           { required: true, message: "邮箱地址不能为空", trigger: "blur" },
           {
             type: "email",
-<<<<<<< HEAD
             message: "请输入正确的邮箱地址",
-=======
-            message: "'请输入正确的邮箱地址",
->>>>>>> 46444bd (RuoYi-Vue 1.0)
             trigger: ["blur", "change"]
           }
         ],
@@ -70,26 +62,13 @@ export default {
       this.$refs["form"].validate(valid => {
         if (valid) {
           updateUserProfile(this.user).then(response => {
-<<<<<<< HEAD
             this.$modal.msgSuccess("修改成功");
-=======
-            if (response.code === 200) {
-              this.msgSuccess("修改成功");
-            } else {
-              this.msgError(response.msg);
-            }
->>>>>>> 46444bd (RuoYi-Vue 1.0)
           });
         }
       });
     },
     close() {
-<<<<<<< HEAD
       this.$tab.closePage();
-=======
-      this.$store.dispatch("tagsView/delView", this.$route);
-      this.$router.push({ path: "/index" });
->>>>>>> 46444bd (RuoYi-Vue 1.0)
     }
   }
 };

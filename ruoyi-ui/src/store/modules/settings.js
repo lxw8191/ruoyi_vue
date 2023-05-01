@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import defaultSettings from '@/settings'
 
 const { sideTheme, showSettings, topNav, tagsView, fixedHeader, sidebarLogo, dynamicTitle } = defaultSettings
@@ -15,21 +14,6 @@ const state = {
   sidebarLogo: storageSetting.sidebarLogo === undefined ? sidebarLogo : storageSetting.sidebarLogo,
   dynamicTitle: storageSetting.dynamicTitle === undefined ? dynamicTitle : storageSetting.dynamicTitle
 }
-=======
-import variables from '@/assets/styles/element-variables.scss'
-import defaultSettings from '@/settings'
-
-const { showSettings, tagsView, fixedHeader, sidebarLogo } = defaultSettings
-
-const state = {
-  theme: variables.theme,
-  showSettings: showSettings,
-  tagsView: tagsView,
-  fixedHeader: fixedHeader,
-  sidebarLogo: sidebarLogo
-}
-
->>>>>>> 46444bd (RuoYi-Vue 1.0)
 const mutations = {
   CHANGE_SETTING: (state, { key, value }) => {
     if (state.hasOwnProperty(key)) {
@@ -39,7 +23,6 @@ const mutations = {
 }
 
 const actions = {
-<<<<<<< HEAD
   // 修改布局设置
   changeSetting({ commit }, data) {
     commit('CHANGE_SETTING', data)
@@ -47,10 +30,6 @@ const actions = {
   // 设置网页标题
   setTitle({ commit }, title) {
     state.title = title
-=======
-  changeSetting({ commit }, data) {
-    commit('CHANGE_SETTING', data)
->>>>>>> 46444bd (RuoYi-Vue 1.0)
   }
 }
 

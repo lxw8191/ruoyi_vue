@@ -1,33 +1,22 @@
-<<<<<<< HEAD
 import auth from '@/plugins/auth'
 import router, { constantRoutes, dynamicRoutes } from '@/router'
 import { getRouters } from '@/api/menu'
 import Layout from '@/layout/index'
 import ParentView from '@/components/ParentView'
 import InnerLink from '@/layout/components/InnerLink'
-=======
-import { constantRoutes } from '@/router'
-import { getRouters } from '@/api/menu'
-import Layout from '@/layout/index'
->>>>>>> 46444bd (RuoYi-Vue 1.0)
 
 const permission = {
   state: {
     routes: [],
-<<<<<<< HEAD
     addRoutes: [],
     defaultRoutes: [],
     topbarRouters: [],
     sidebarRouters: []
-=======
-    addRoutes: []
->>>>>>> 46444bd (RuoYi-Vue 1.0)
   },
   mutations: {
     SET_ROUTES: (state, routes) => {
       state.addRoutes = routes
       state.routes = constantRoutes.concat(routes)
-<<<<<<< HEAD
     },
     SET_DEFAULT_ROUTES: (state, routes) => {
       state.defaultRoutes = constantRoutes.concat(routes)
@@ -38,9 +27,6 @@ const permission = {
     SET_SIDEBAR_ROUTERS: (state, routes) => {
       state.sidebarRouters = routes
     },
-=======
-    }
->>>>>>> 46444bd (RuoYi-Vue 1.0)
   },
   actions: {
     // 生成路由
@@ -48,7 +34,6 @@ const permission = {
       return new Promise(resolve => {
         // 向后端请求路由数据
         getRouters().then(res => {
-<<<<<<< HEAD
           const sdata = JSON.parse(JSON.stringify(res.data))
           const rdata = JSON.parse(JSON.stringify(res.data))
           const sidebarRoutes = filterAsyncRouter(sdata)
@@ -61,11 +46,6 @@ const permission = {
           commit('SET_DEFAULT_ROUTES', sidebarRoutes)
           commit('SET_TOPBAR_ROUTES', sidebarRoutes)
           resolve(rewriteRoutes)
-=======
-          const accessedRoutes = filterAsyncRouter(res.data)
-          commit('SET_ROUTES', accessedRoutes)
-          resolve(accessedRoutes)
->>>>>>> 46444bd (RuoYi-Vue 1.0)
         })
       })
     }
@@ -73,7 +53,6 @@ const permission = {
 }
 
 // 遍历后台传来的路由字符串，转换为组件对象
-<<<<<<< HEAD
 function filterAsyncRouter(asyncRouterMap, lastRouter = false, type = false) {
   return asyncRouterMap.filter(route => {
     if (type && route.children) {
@@ -87,33 +66,20 @@ function filterAsyncRouter(asyncRouterMap, lastRouter = false, type = false) {
         route.component = ParentView
       } else if (route.component === 'InnerLink') {
         route.component = InnerLink
-=======
-function filterAsyncRouter(asyncRouterMap) {
-  return asyncRouterMap.filter(route => {
-    if (route.component) {
-      // Layout组件特殊处理
-      if (route.component === 'Layout') {
-        route.component = Layout
->>>>>>> 46444bd (RuoYi-Vue 1.0)
       } else {
         route.component = loadView(route.component)
       }
     }
     if (route.children != null && route.children && route.children.length) {
-<<<<<<< HEAD
       route.children = filterAsyncRouter(route.children, route, type)
     } else {
       delete route['children']
       delete route['redirect']
-=======
-      route.children = filterAsyncRouter(route.children)
->>>>>>> 46444bd (RuoYi-Vue 1.0)
     }
     return true
   })
 }
 
-<<<<<<< HEAD
 function filterChildren(childrenMap, lastRouter = false) {
   var children = []
   childrenMap.forEach((el, index) => {
@@ -162,10 +128,6 @@ export const loadView = (view) => {
     // 使用 import 实现生产环境的路由懒加载
     return () => import(`@/views/${view}`)
   }
-=======
-export const loadView = (view) => { // 路由懒加载
-  return () => import(`@/views/${view}`)
->>>>>>> 46444bd (RuoYi-Vue 1.0)
 }
 
 export default permission

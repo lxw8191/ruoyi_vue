@@ -1,12 +1,8 @@
  /**
-<<<<<<< HEAD
  * v-hasPermi 操作权限处理
-=======
- * 操作权限处理
->>>>>>> 46444bd (RuoYi-Vue 1.0)
  * Copyright (c) 2019 ruoyi
  */
-
+ 
 import store from '@/store'
 
 export default {

@@ -1,7 +1,6 @@
 import store from '@/store'
 
 /**
-<<<<<<< HEAD
  * 字符权限校验
  * @param {Array} value 校验值
  * @returns {Boolean}
@@ -42,33 +41,11 @@ export function checkRole(value) {
     })
 
     if (!hasRole) {
-=======
- * @param {Array} value
- * @returns {Boolean}
- */
-export default function checkPermission(value) {
-  if (value && value instanceof Array && value.length > 0) {
-    const roles = store.getters && store.getters.roles
-    const permissionRoles = value
-
-    const hasPermission = roles.some(role => {
-      return permissionRoles.includes(role)
-    })
-
-    if (!hasPermission) {
->>>>>>> 46444bd (RuoYi-Vue 1.0)
       return false
     }
     return true
   } else {
-<<<<<<< HEAD
     console.error(`need roles! Like checkRole="['admin','editor']"`)
     return false
   }
 }
-=======
-    console.error(`need roles! Like v-permission="['admin','editor']"`)
-    return false
-  }
-}
->>>>>>> 46444bd (RuoYi-Vue 1.0)

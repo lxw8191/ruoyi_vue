@@ -49,26 +49,16 @@ const user = {
     // 获取用户信息
     GetInfo({ commit, state }) {
       return new Promise((resolve, reject) => {
-<<<<<<< HEAD
         getInfo().then(res => {
           const user = res.user
           const avatar = (user.avatar == "" || user.avatar == null) ? require("@/assets/images/profile.jpg") : process.env.VUE_APP_BASE_API + user.avatar;
-=======
-        getInfo(state.token).then(res => {
-          const user = res.user
-          const avatar = user.avatar == "" ? require("@/assets/image/profile.jpg") : process.env.VUE_APP_BASE_API + user.avatar;
->>>>>>> 46444bd (RuoYi-Vue 1.0)
           if (res.roles && res.roles.length > 0) { // 验证返回的roles是否是一个非空数组
             commit('SET_ROLES', res.roles)
             commit('SET_PERMISSIONS', res.permissions)
           } else {
             commit('SET_ROLES', ['ROLE_DEFAULT'])
           }
-<<<<<<< HEAD
           commit('SET_NAME', user.userName)
-=======
-          commit('SET_NAME', user.username)
->>>>>>> 46444bd (RuoYi-Vue 1.0)
           commit('SET_AVATAR', avatar)
           resolve(res)
         }).catch(error => {
@@ -76,11 +66,7 @@ const user = {
         })
       })
     },
-<<<<<<< HEAD
 
-=======
-
->>>>>>> 46444bd (RuoYi-Vue 1.0)
     // 退出系统
     LogOut({ commit, state }) {
       return new Promise((resolve, reject) => {

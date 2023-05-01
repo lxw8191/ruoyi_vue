@@ -20,11 +20,7 @@ export function getData(dictCode) {
 // 根据字典类型查询字典数据信息
 export function getDicts(dictType) {
   return request({
-<<<<<<< HEAD
     url: '/system/dict/data/type/' + dictType,
-=======
-    url: '/system/dict/data/dictType/' + dictType,
->>>>>>> 46444bd (RuoYi-Vue 1.0)
     method: 'get'
   })
 }
@@ -53,8 +49,4 @@ export function delData(dictCode) {
     url: '/system/dict/data/' + dictCode,
     method: 'delete'
   })
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 46444bd (RuoYi-Vue 1.0)

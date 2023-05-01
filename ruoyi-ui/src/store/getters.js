@@ -2,10 +2,7 @@ const getters = {
   sidebar: state => state.app.sidebar,
   size: state => state.app.size,
   device: state => state.app.device,
-<<<<<<< HEAD
   dict: state => state.dict.dict,
-=======
->>>>>>> 46444bd (RuoYi-Vue 1.0)
   visitedViews: state => state.tagsView.visitedViews,
   cachedViews: state => state.tagsView.cachedViews,
   token: state => state.user.token,
@@ -14,13 +11,9 @@ const getters = {
   introduction: state => state.user.introduction,
   roles: state => state.user.roles,
   permissions: state => state.user.permissions,
-<<<<<<< HEAD
   permission_routes: state => state.permission.routes,
   topbarRouters:state => state.permission.topbarRouters,
   defaultRoutes:state => state.permission.defaultRoutes,
   sidebarRouters:state => state.permission.sidebarRouters,
-=======
-  permission_routes: state => state.permission.routes
->>>>>>> 46444bd (RuoYi-Vue 1.0)
 }
 export default getters

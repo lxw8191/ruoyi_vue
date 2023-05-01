@@ -1,12 +1,8 @@
  /**
-<<<<<<< HEAD
  * v-hasRole 角色权限处理
-=======
- * 角色权限处理
->>>>>>> 46444bd (RuoYi-Vue 1.0)
  * Copyright (c) 2019 ruoyi
  */
-
+ 
 import store from '@/store'
 
 export default {

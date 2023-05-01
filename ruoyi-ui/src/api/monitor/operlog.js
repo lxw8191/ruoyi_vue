@@ -7,7 +7,6 @@ export function list(query) {
     method: 'get',
     params: query
   })
-<<<<<<< HEAD
 }
 
 // 删除操作日志
@@ -25,6 +24,3 @@ export function cleanOperlog() {
     method: 'delete'
   })
 }
-=======
-}
->>>>>>> 46444bd (RuoYi-Vue 1.0)

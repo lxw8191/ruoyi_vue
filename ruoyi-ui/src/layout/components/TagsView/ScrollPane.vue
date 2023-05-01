@@ -19,27 +19,21 @@ export default {
       return this.$refs.scrollContainer.$refs.wrap
     }
   },
-<<<<<<< HEAD
   mounted() {
     this.scrollWrapper.addEventListener('scroll', this.emitScroll, true)
   },
   beforeDestroy() {
     this.scrollWrapper.removeEventListener('scroll', this.emitScroll)
   },
-=======
->>>>>>> 46444bd (RuoYi-Vue 1.0)
   methods: {
     handleScroll(e) {
       const eventDelta = e.wheelDelta || -e.deltaY * 40
       const $scrollWrapper = this.scrollWrapper
       $scrollWrapper.scrollLeft = $scrollWrapper.scrollLeft + eventDelta / 4
     },
-<<<<<<< HEAD
     emitScroll() {
       this.$emit('scroll')
     },
-=======
->>>>>>> 46444bd (RuoYi-Vue 1.0)
     moveToTarget(currentTag) {
       const $container = this.$refs.scrollContainer.$el
       const $containerWidth = $container.offsetWidth
@@ -88,16 +82,12 @@ export default {
   position: relative;
   overflow: hidden;
   width: 100%;
-<<<<<<< HEAD
   ::v-deep {
-=======
-  /deep/ {
->>>>>>> 46444bd (RuoYi-Vue 1.0)
     .el-scrollbar__bar {
       bottom: 0px;
     }
     .el-scrollbar__wrap {
-      height: 49px;
+      height: 39px;
     }
   }
 }

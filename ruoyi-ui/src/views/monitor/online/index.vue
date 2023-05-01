@@ -1,6 +1,5 @@
 <template>
   <div class="app-container">
-<<<<<<< HEAD
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" label-width="68px">
       <el-form-item label="登录地址" prop="ipaddr">
         <el-input
@@ -121,8 +120,3 @@ export default {
 };
 </script>
 
-=======
-   在线用户
-  </div>
-</template>
->>>>>>> 46444bd (RuoYi-Vue 1.0)
