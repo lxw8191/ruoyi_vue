@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * 生产厂家信息Controller
  * 
- * @author lsl
+ * @author lxw
  * @date 2023-04-09
  */
 @RestController

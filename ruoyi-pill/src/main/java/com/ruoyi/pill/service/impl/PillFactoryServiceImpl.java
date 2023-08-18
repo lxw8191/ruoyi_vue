@@ -11,7 +11,7 @@ import com.ruoyi.pill.service.IPillFactoryService;
 /**
  * 生产厂家信息Service业务层处理
  * 
- * @author lsl
+ * @author lxw
  * @date 2023-04-09
  */
 @Service

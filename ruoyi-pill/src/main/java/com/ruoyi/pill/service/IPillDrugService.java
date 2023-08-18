@@ -6,7 +6,7 @@ import com.ruoyi.pill.domain.PillDrug;
 /**
  * 药品信息Service接口
  * 
- * @author lsl
+ * @author lxw
  * @date 2023-04-10
  */
 public interface IPillDrugService 

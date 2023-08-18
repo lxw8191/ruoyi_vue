@@ -6,7 +6,7 @@ import com.ruoyi.pill.domain.PillFactory;
 /**
  * 生产厂家信息Service接口
  * 
- * @author lsl
+ * @author lxw
  * @date 2023-04-09
  */
 public interface IPillFactoryService 

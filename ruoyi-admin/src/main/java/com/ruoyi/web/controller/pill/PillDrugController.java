@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * 药品信息Controller
  * 
- * @author lsl
+ * @author lxw
  * @date 2023-04-10
  */
 @RestController

@@ -8,7 +8,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
 /**
  * 药品信息对象 pill_drug
  *
- * @author lsl
+ * @author lxw
  * @date 2023-04-10
  */
 public class PillDrug extends BaseEntity {

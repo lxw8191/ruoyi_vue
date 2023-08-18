@@ -5,15 +5,15 @@ import com.ruoyi.pill.domain.PillDrug;
 
 /**
  * 药品信息Mapper接口
- * 
- * @author lsl
+ *
+ * @author lxw
  * @date 2023-04-10
  */
-public interface PillDrugMapper 
+public interface PillDrugMapper
 {
     /**
      * 查询药品信息
-     * 
+     *
      * @param drugId 药品信息主键
      * @return 药品信息
      */
@@ -21,7 +21,7 @@ public interface PillDrugMapper
 
     /**
      * 查询药品信息列表
-     * 
+     *
      * @param pillDrug 药品信息
      * @return 药品信息集合
      */
@@ -29,7 +29,7 @@ public interface PillDrugMapper
 
     /**
      * 新增药品信息
-     * 
+     *
      * @param pillDrug 药品信息
      * @return 结果
      */
@@ -37,7 +37,7 @@ public interface PillDrugMapper
 
     /**
      * 修改药品信息
-     * 
+     *
      * @param pillDrug 药品信息
      * @return 结果
      */
@@ -45,7 +45,7 @@ public interface PillDrugMapper
 
     /**
      * 删除药品信息
-     * 
+     *
      * @param drugId 药品信息主键
      * @return 结果
      */
@@ -53,7 +53,7 @@ public interface PillDrugMapper
 
     /**
      * 批量删除药品信息
-     * 
+     *
      * @param drugIds 需要删除的数据主键集合
      * @return 结果
      */

@@ -8,7 +8,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
 /**
  * 生产厂家信息对象 pill_factory
  * 
- * @author lsl
+ * @author lxw
  * @date 2023-04-09
  */
 public class PillFactory extends BaseEntity

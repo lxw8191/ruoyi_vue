@@ -11,7 +11,7 @@ import com.ruoyi.pill.service.IPillDrugService;
 /**
  * 药品信息Service业务层处理
  * 
- * @author lsl
+ * @author lxw
  * @date 2023-04-10
  */
 @Service
